@@ -41,5 +41,6 @@ Ja, det är den bästa metoden. Fast det finns metoder som heter getallUpdates() o
 
 Efter att ha gjort flera projekt med SBT, som ni kanske försår efter att ha läst allt, att dokumentationen inte är den bästa. Detta medför att utveckling går sakta och blir stumtals frustrerande. 
 Dock är det bra att inte behöva göra arbetet som IBM Social Business Toolkit SDK kommer med. 
+I det stora hela tycker jag att SBT fungerar okej och om de uppdaterar dokumentationen kommer utveckling med SBT gå snabbt och smidigt. 
 
 
