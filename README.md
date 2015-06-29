@@ -25,17 +25,20 @@ endpoint.setPassword("password");
 endpoint.setForceTrustSSLCertificate(true);
 endpoint.setApiVersion("4.5"); // Use Connections 4.5
 ```
-setForceTrustSSLCertificate(true) is a must, if you want to login to Connections.
-apiVersion() needs to be set to the specific version on Connections. If you don’t configure it you will get some really strange issues, trust me.
+
+**Explanation**
+  1. Create basic endpoint
+  2. Set url to your IBM Connections installation
+  3. Set username/password
+  4. If your page is https, you can force the client to accept it by setting `setForceTrustSSLCertificate` to true.
+  5. Set the api-version to what your installation in 2. is.
 
 ## Blog
 
-This is an example on how to get all the blogs that a user has created. Hopefully you can just copy/paste it without too much configuration.
-
+This is an example on how to get all the blogs that a user has created. 
 
 ```java
-
-public List<Blog> getBlogs() throws ClientServicesException  {
+public List<Blog> getMyBlogs() throws ClientServicesException  {
   BlogService service = new BlogService(endpoint);
   service.setHomepageHandle("start");
   return service().getMyBlogs();
