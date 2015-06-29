@@ -30,7 +30,7 @@ endpoint.setApiVersion("4.5"); // Use Connections 4.5
   1. Create basic endpoint
   2. Set url to your IBM Connections installation
   3. Set username/password
-  4. If your page is https, you can force the client to accept it by setting `setForceTrustSSLCertificate` to true.
+  4. If your page is https, you can force the client to accept it by setting [setForceTrustSSLCertificate](http://infolib.lotus.com/resources/social_business_toolkit/javadoc/com/ibm/sbt/services/endpoints/AbstractEndpoint.html#setForceTrustSSLCertificate%28boolean%29) to true.
   5. Set the api-version to what your installation in 2. is.
 
 ## Blog
@@ -44,11 +44,13 @@ public List<Blog> getMyBlogs() throws ClientServicesException  {
   return service().getMyBlogs();
 }
 ```
-blogHomePageHandle is by default “homePage” and you can set it to null. But for us it was “start”. How to find it isn’t written anywhere and after a few hours of searching we looked in the rest-calls made by Connections and found it! out of sheer luck. If you don’t know where to find a specific page on Connections, look at the rest-calls, don’t bother looking in the documentation.
+**Explanation**
+1. Initialize [BlogService](http://infolib.lotus.com/resources/social_business_toolkit/javadoc/com/ibm/sbt/services/client/connections/blogs/BlogService.html) with an endpoint
+2. The homepageHandle is by default "homepage" and doesn't need to be set. But if it's something else you need to set it. In      our case it's "start". If you don't know what it is; Find it by looking in the Rest-calls in connections. 
 
 ## ActivityStream 
 
-To get all the status updates that people do, use ActivityStream.
+To get all the activity updates that people do, use ActivityStreamService.
 
 ```java
 public List<ActivityStreamEntity> readStatus() throws ClientServicesException, ActivityStreamServiceException {
@@ -56,11 +58,8 @@ public List<ActivityStreamEntity> readStatus() throws ClientServicesException, A
   return service.getStream();
 }
 ```
-ActivityStreamService is in the library provided by SBT and does all the communication. You only need to create an endpoint. 
-Everything looks good right? Noting special here… 
-But why do I use service.getStream() to get all the status updates? I found out that it was the method that matched what I wanted the best, even though there are methods like getAllUpdates(). As I’m going by trial and error, as I’m sure you do as well, you might find that another method is superior, but who knows?
+**Explanation**
+1. Initialize [ActivityStreamService](http://infolib.lotus.com/resources/social_business_toolkit/javadoc/com/ibm/sbt/services/client/connections/activitystreams/ActivityStreamService.html) with an endpoint.
+2. For us [getStream()](http://infolib.lotus.com/resources/social_business_toolkit/javadoc/com/ibm/sbt/services/client/connections/activitystreams/ActivityStreamService.html#getStream%28%29) returns the most relavent activity updates.
 
-## Final Thoughts
 
-After I’ve done a few projects with SBT. I still find it very annoying that the documentation is really bad. It makes the development-process slower and sometimes a bit frustrating.On the whole, I think the SBT is okey. If they update the documentation it can become really pleasant to work with. 
-I hope that you have learned something  and can learn by my mistakes!
