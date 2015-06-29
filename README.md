@@ -46,7 +46,7 @@ public List<Blog> getMyBlogs() throws ClientServicesException  {
 ```
 **Explanation**
   1. Initialize [BlogService](http://infolib.lotus.com/resources/social_business_toolkit/javadoc/com/ibm/sbt/services/client/connections/blogs/BlogService.html) with an endpoint
-  2. The homepageHandle is by default "homepage" and doesn't need to be set. But if it's something else you need to set it.  In our case it's "start". If you don't know what it is; Find it by looking in the Rest-calls in connections. 
+  2. The [homepageHandle](http://infolib.lotus.com/resources/social_business_toolkit/javadoc/com/ibm/sbt/services/client/connections/blogs/BlogService.html#setHomepageHandle%28java.lang.String%29) is by default "homepage" and doesn't need to be set. But if it's something else you need to set it.  In our case it's "start". If you don't know what it is; Find it by looking in the Rest-calls in connections. It should be something like; your_connection_url/blogs/homepageHanle, in our case "connections.item.no/blogs/start" 
 
 ## ActivityStream 
 
