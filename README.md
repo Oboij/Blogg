@@ -7,8 +7,8 @@ SBT is a way of interacting with for example IBM Connections as a third-party ap
 
 In past blogs we have talked about how good Connections is, but is Social Business Toolkit equally good? 
 
-There are many pages of documentation that you can read, but that there is a lot of reading it doesnít necessarily mean that itís good. I often find it cryptic, that it doesnít explain how to implement or use SBT and I usually leave more confused than i began with. I found that the best way was just to read all the SBT code and test what works. This takes a lot of time and isnít the best way of doing it. I shouldnít complain too much though as I donít want to write a similar API, that does the same thing and document it.
- Iím going to show you some examples on how to use SBT and which traps not to fall into.
+There are many pages of documentation that you can read, but that there is a lot of reading it doesn‚Äôt necessarily mean that it‚Äôs good. I often find it cryptic, that it doesn‚Äôt explain how to implement or use SBT and I usually leave more confused than i began with. I found that the best way was just to read all the SBT code and test what works. This takes a lot of time and isn‚Äôt the best way of doing it. I shouldn‚Äôt complain too much though as I don‚Äôt want to write a similar API, that does the same thing and document it.
+ I‚Äôm going to show you some examples on how to use SBT and which traps not to fall into.
 
 ## Endpoint
 
@@ -16,17 +16,15 @@ An endpoint is a way to authenticate your user to Connections. A BasicEndpoint, 
 
 
 ```java
-public Endpoint login(String username, String password) {
 BasicEndpoint endpoint = new BasicEndpoint();
-endpoint.setUrl(ìwww.connections.item.noî);
-endpoint.setUsername(username);
-endpoint.setPassword(password);
+endpoint.setUrl("connections.item.no");
+endpoint.setUsername("username");
+endpoint.setPassword("password");
 endpoint.setForceTrustSSLCertificate(true);
-endpoint.setApiVersion("4.5");
-}
+endpoint.setApiVersion("4.5"); // Use Connections 4.5
 ```
 setForceTrustSSLCertificate(true) is a must, if you want to login to Connections.
-apiVersion() needs to be set to the specific version on Connections. If you donít configure it you will get some really strange issues, trust me.
+apiVersion() needs to be set to the specific version on Connections. If you don‚Äôt configure it you will get some really strange issues, trust me.
 
 ## Blog
 
@@ -34,46 +32,14 @@ This is an example on how to get all the blogs that a user has created. Hopefull
 
 
 ```java
-public class MyBlogService {
 
-private String blogHomepageHandle;
-
-public MyBlogService(String blogHomepageHandle) {
-this.blogHomepageHandle = blogHomepageHandle;
-}
-
-
-public List<Blog> getBlogs()  {
-try {
-Return service().getMyBlogs();
-} catch(ClientServicesException e){
-  Logger.error("Can't get Blogs from Connections.", e);
-  return Collections.emptyList();
-}
-
-}
-
-private BlogService service(){
-  BlogService service = new BlogService(login(ìusermaneî, ìpasswordî);
-  homepageHandle().ifPresent(service::setHomepageHandle);
-  return service;
-}
-private Optional<String> homepageHandle(){
-  return Optional.ofNullable(blogHomepageHandle);
-}
-private Endpoint login(String username, String password) {
-BasicEndpoint endpoint = new BasicEndpoint();
-endpoint.setUrl(ìwww.connections.item.noî);
-endpoint.setUsername(username);
-endpoint.setPassword(password);
-endpoint.setForceTrustSSLCertificate(true);
-endpoint.setApiVersion("4.5");
-}
-
-
+public List<Blog> getBlogs() throws ClientServicesException  {
+  BlogService service = new BlogService(endpoint);
+  service.setHomepageHandle("start");
+  return service().getMyBlogs();
 }
 ```
-blogHomePageHandle is by default ìhomePageî and you can set it to null. But for us it was ìstartî. How to find it isnít written anywhere and after a few hours of searching we looked in the rest-calls made by Connections and found it! out of sheer luck. If you donít know where to find a specific page on Connections, look at the rest-calls, donít bother looking in the documentation.
+blogHomePageHandle is by default ‚ÄúhomePage‚Äù and you can set it to null. But for us it was ‚Äústart‚Äù. How to find it isn‚Äôt written anywhere and after a few hours of searching we looked in the rest-calls made by Connections and found it! out of sheer luck. If you don‚Äôt know where to find a specific page on Connections, look at the rest-calls, don‚Äôt bother looking in the documentation.
 
 ## ActivityStream 
 
@@ -90,10 +56,10 @@ readStatus() throws ClientServicesException, ActivityStreamServiceException {
 
 ```
 ActivityStreamService is in the library provided by SBT and does all the communication. You only need to create an endpoint. 
-Everything looks good right? Noting special hereÖ 
-But why do I use service.getStream() to get all the status updates? I found out that it was the method that matched what I wanted the best, even though there are methods like getAllUpdates(). As Iím going by trial and error, as Iím sure you do as well, you might find that another method is superior, but who knows?
+Everything looks good right? Noting special here‚Ä¶ 
+But why do I use service.getStream() to get all the status updates? I found out that it was the method that matched what I wanted the best, even though there are methods like getAllUpdates(). As I‚Äôm going by trial and error, as I‚Äôm sure you do as well, you might find that another method is superior, but who knows?
 
 ## Final Thoughts
 
-After Iíve done a few projects with SBT. I still find it very annoying that the documentation is really bad. It makes the development-process slower and sometimes a bit frustrating.On the whole, I think the SBT is okey. If they update the documentation it can become really pleasant to work with. 
+After I‚Äôve done a few projects with SBT. I still find it very annoying that the documentation is really bad. It makes the development-process slower and sometimes a bit frustrating.On the whole, I think the SBT is okey. If they update the documentation it can become really pleasant to work with. 
 I hope that you have learned something  and can learn by my mistakes!
