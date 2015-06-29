@@ -1,19 +1,21 @@
-# IBM Social Business Toolkit SDK
+# Intro to IBM Social Business Toolkit
 
-I will refer IBM Social Business Toolkit SDK, to SBT in this blog. 
-SBT is a way of interacting with for example IBM Connections as a third-party application. It is a library written in java, with a lot of functions and different uses. 
+IBM SBT is a java library for interacting with (for example) IBM Connections.
 
-## Connections + SBT = True?
+## Where to learn about SBT (or not learn)
 
-In past blogs we have talked about how good Connections is, but is Social Business Toolkit equally good? 
+  * SBT is missing it's documentation
+  * SBT is missing it's unittests
+  * IBM Connections REST API
+  * Read the code, look at the APIs
 
-There are many pages of documentation that you can read, but that there is a lot of reading it doesn’t necessarily mean that it’s good. I often find it cryptic, that it doesn’t explain how to implement or use SBT and I usually leave more confused than i began with. I found that the best way was just to read all the SBT code and test what works. This takes a lot of time and isn’t the best way of doing it. I shouldn’t complain too much though as I don’t want to write a similar API, that does the same thing and document it.
- I’m going to show you some examples on how to use SBT and which traps not to fall into.
+## Lessons
+
+It's often easiest to just read the [code](http://mvnrepository.com/artifact/com.ibm.sbt/com.ibm.sbt.core) as the documentation is lacking.
 
 ## Endpoint
 
-An endpoint is a way to authenticate your user to Connections. A BasicEndpoint, as shown below, is basicly the same username and password the user logs into Connections with.
-
+An endpoint is a way to authenticate your user to Connections. A `BasicEndpoint`, uses a username and password to log into Connections.
 
 ```java
 BasicEndpoint endpoint = new BasicEndpoint();
