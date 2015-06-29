@@ -15,7 +15,7 @@ It's often easiest to just read the [code](http://mvnrepository.com/artifact/com
 
 ## Endpoint
 
-An endpoint is a way to authenticate your user to Connections. A `BasicEndpoint`, uses a username and password to log into Connections.
+An endpoint is a way to authenticate your user to Connections. A [BasicEndpoint](http://infolib.lotus.com/resources/social_business_toolkit/javadoc/com/ibm/sbt/services/endpoints/BasicEndpoint.html), uses a username and password to log into Connections.
 
 ```java
 BasicEndpoint endpoint = new BasicEndpoint();
