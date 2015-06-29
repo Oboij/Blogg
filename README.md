@@ -9,9 +9,11 @@ IBM SBT is a java library for interacting with (for example) IBM Connections.
  - [ ] IBM Connections REST API
  - [x] Read the code, look at the APIs
 
-## Lessons
+## Tips
 
-It's often easiest to just read the [code](http://mvnrepository.com/artifact/com.ibm.sbt/com.ibm.sbt.core) as the documentation is lacking.
+It's often easiest to just read the [code](http://mvnrepository.com/artifact/com.ibm.sbt/com.ibm.sbt.core) as the documentation is lacking or,
+You can find the Java-docs [here] (infolib.lotus.com/resources/social_business_toolkit/javadoc/index.html?com/ibm/sbt/).
+
 
 ## Endpoint
 
@@ -46,7 +48,7 @@ public List<Blog> getMyBlogs() throws ClientServicesException  {
 ```
 **Explanation**
   1. Initialize [BlogService](http://infolib.lotus.com/resources/social_business_toolkit/javadoc/com/ibm/sbt/services/client/connections/blogs/BlogService.html) with an endpoint
-  2. The [homepageHandle](http://infolib.lotus.com/resources/social_business_toolkit/javadoc/com/ibm/sbt/services/client/connections/blogs/BlogService.html#setHomepageHandle%28java.lang.String%29) is by default "homepage" and doesn't need to be set. But if it's something else you need to set it.  In our case it's "start". If you don't know what it is; Find it by looking in the Rest-calls in connections. It should be something like; your_connection_url/blogs/homepageHanle, in our case "connections.item.no/blogs/start" 
+  2. The [homepageHandle](http://infolib.lotus.com/resources/social_business_toolkit/javadoc/com/ibm/sbt/services/client/connections/blogs/BlogService.html#setHomepageHandle%28java.lang.String%29) is by default "homepage" and doesn't need to be set. But if it's something else you need to set it.  In our case it's "start". If you don't know what it is; Find it by looking in the Rest-calls in connections. It should be something like; ´your_connection_url/blogs/homepageHanle´, in our case ´connections.item.no/blogs/start´. 
 
 ## ActivityStream 
 
