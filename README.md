@@ -4,10 +4,10 @@ IBM SBT is a java library for interacting with (for example) IBM Connections.
 
 ## Where to learn about SBT (or not learn)
 
-  * SBT is missing it's documentation
-  * SBT is missing it's unittests
-  * IBM Connections REST API
-  * Read the code, look at the APIs
+ - [ ] SBT is missing it's documentation
+ - [ ] SBT is missing it's unittests
+ - [ ] IBM Connections REST API
+ - [x] Read the code, look at the APIs
 
 ## Lessons
 
