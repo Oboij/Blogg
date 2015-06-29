@@ -45,8 +45,8 @@ public List<Blog> getMyBlogs() throws ClientServicesException  {
 }
 ```
 **Explanation**
-1. Initialize [BlogService](http://infolib.lotus.com/resources/social_business_toolkit/javadoc/com/ibm/sbt/services/client/connections/blogs/BlogService.html) with an endpoint
-2. The homepageHandle is by default "homepage" and doesn't need to be set. But if it's something else you need to set it. In      our case it's "start". If you don't know what it is; Find it by looking in the Rest-calls in connections. 
+  1. Initialize [BlogService](http://infolib.lotus.com/resources/social_business_toolkit/javadoc/com/ibm/sbt/services/client/connections/blogs/BlogService.html) with an endpoint
+  2. The homepageHandle is by default "homepage" and doesn't need to be set. But if it's something else you need to set it.  In our case it's "start". If you don't know what it is; Find it by looking in the Rest-calls in connections. 
 
 ## ActivityStream 
 
@@ -59,7 +59,7 @@ public List<ActivityStreamEntity> readStatus() throws ClientServicesException, A
 }
 ```
 **Explanation**
-1. Initialize [ActivityStreamService](http://infolib.lotus.com/resources/social_business_toolkit/javadoc/com/ibm/sbt/services/client/connections/activitystreams/ActivityStreamService.html) with an endpoint.
-2. For us [getStream()](http://infolib.lotus.com/resources/social_business_toolkit/javadoc/com/ibm/sbt/services/client/connections/activitystreams/ActivityStreamService.html#getStream%28%29) returns the most relavent activity updates.
+  1. Initialize [ActivityStreamService](http://infolib.lotus.com/resources/social_business_toolkit/javadoc/com/ibm/sbt/services/client/connections/activitystreams/ActivityStreamService.html) with an endpoint.
+  2. For us [getStream()](http://infolib.lotus.com/resources/social_business_toolkit/javadoc/com/ibm/sbt/services/client/connections/activitystreams/ActivityStreamService.html#getStream%28%29) returns the most relavent activity updates.
 
 
