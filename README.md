@@ -46,14 +46,10 @@ blogHomePageHandle is by default “homePage” and you can set it to null. But 
 To get all the status updates that people do, use ActivityStream.
 
 ```java
-
-public List<ActivityStreamEntity>
-readStatus() throws ClientServicesException, ActivityStreamServiceException {
+public List<ActivityStreamEntity> readStatus() throws ClientServicesException, ActivityStreamServiceException {
   ActivityStreamService service = new ActivityStreamService(endpoint);
-
- return service.getStream();
-   
-
+  return service.getStream();
+}
 ```
 ActivityStreamService is in the library provided by SBT and does all the communication. You only need to create an endpoint. 
 Everything looks good right? Noting special here… 
